@@ -58,7 +58,15 @@ session_start();
     </nav>
     <form action="../php/upload.php" method="POST" enctype="multipart/form-data">
         <input type="file" class="custom-file-upload subir-actividades-button margin-subir-actividades" name="foto"><br>
-        <input type=" text " class="custom-file-upload margin-subir-actividades" name="des " id="des " placeholder="Pon tu descripcion">
+        <div class="form-group margin-subir-actividades">
+            <label for="exampleInputEmail1">Título</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserta el título de la imagen">
+        </div>
+        <div class="form-group margin-subir-actividades">
+            <label for="exampleInputPassword1">Descripción</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Añade una pequeña descripción a tu imagen">
+        </div>
+        <button type="submit" class="btn btn-primary margin-subir-actividades">Enviar</button>
 
         <br>
     </form>

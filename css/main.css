@@ -187,6 +187,7 @@ input [type="file"] {
 .margin-subir-actividades {
     margin-left: 25%;
     margin-top: 5%;
+    margin-right: 25%;
     align-items: center;
 }
 
