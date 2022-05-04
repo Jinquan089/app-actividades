@@ -18,6 +18,25 @@ header {
 }
 
 
+/* Main */
+
+main {
+    padding-left: 5%;
+    padding-right: 40%;
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+main h1 {
+    font-size: 2.5em;
+}
+
+main p {
+    color: #d0d0d0;
+}
+
+
 /* clases predefinidas */
 
 * {
@@ -26,14 +45,25 @@ header {
 
 body {
     margin: 0;
+    height: 100vh;
+    align-items: center;
+    background-color: snow;
 }
 
 strong {
+    color: #ffffff;
     font-family: 'Homemade Apple', cursive;
 }
 
 i {
     opacity: 0.5;
+}
+
+
+/* links */
+
+p a {
+    outline: none;
 }
 
 
@@ -110,7 +140,7 @@ i {
     height: 15vw;
 }
 
-img{
+img {
     object-fit: cover;
     width: 100%;
 }
@@ -143,7 +173,39 @@ img{
     border-radius: 0;
 }
 
+input [type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.margin-subir-actividades {
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.subir-actividades-button {
+    width: 50%;
+    height: 35%;
+    background: rgb(71, 222, 222);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.subir-actividades-button:hover {
+    background: rgb(76, 190, 190);
+}
+
+
 /* Responsive: 800px */
+
 @media only screen and (max-width: 800px) {
     /*reglas*/
     header {
@@ -181,7 +243,6 @@ img{
     .padding-mobile {
         padding: 1% 2% 1% 2%;
     }
-
     .padding-right {
         padding-right: 2%;
     }
@@ -191,7 +252,13 @@ img{
     .padding-l {
         padding: 0;
     }
+    main {
+        font-size: 1.2em;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
+
 
 /* Responsive móbil: 400px*/
 
@@ -210,5 +277,185 @@ img{
     }
     .padding-mobile {
         padding: 3% 0% 3% 0%;
+    }
+    main {
+        font-size: 1em;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    button {
+        margin-bottom: 1%;
+    }
+}
+
+
+/* ---------------------- Index animation -------------------------- */
+
+@-webkit-keyframes cube {
+    from {
+        -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+@keyframes cube {
+    from {
+        -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+
+/* ---------------------------------------------------------------------- */
+
+
+/* Fonde de Pantalla index */
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+.title {
+    padding-left: 20%;
+    padding-top: 20%;
+    z-index: 1;
+}
+
+.hero {
+    background-color: #0040C1;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #003298;
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    -webkit-animation: cube 12s ease-in forwards infinite;
+    animation: cube 12s ease-in forwards infinite;
+}
+
+.cube:nth-child(2n) {
+    border-color: #0051f4;
+}
+
+.cube:nth-child(2) {
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    left: 50vw;
+    top: 15vh;
+}
+
+.cube:nth-child(3) {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    left: 75vw;
+    top: 50vh;
+}
+
+.cube:nth-child(4) {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    left: 90vw;
+    top: 10vh;
+}
+
+.cube:nth-child(5) {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    left: 10vw;
+    top: 85vh;
+}
+
+.cube:nth-child(6) {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    left: 20vw;
+    top: 10vh;
+}
+
+.cube:nth-child(7) {
+    -webkit-animation-delay: 3.5s;
+    animation-delay: 3.5s;
+    left: 5vw;
+    top: 40vh;
+}
+
+
+/* Fondo de Pantalla */
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.bg {
+    animation: slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: .5;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    z-index: -1;
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
+}
+
+.bg3 {
+    animation-duration: 5s;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: .25em;
+    box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
+    box-sizing: border-box;
+    left: 50%;
+    padding-top: 15vmin;
+    padding-left: 15vmin;
+    padding-right: 15vmin;
+    padding-bottom: 9vmin;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-family: monospace;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(25%);
     }
 }
