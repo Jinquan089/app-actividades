@@ -57,8 +57,8 @@ session_start();
         </div>
     </nav>
     <form action="../php/upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file" class="custom-file-upload subir-actividades-button" name="foto"><br>
-        <input type=" text " class="custom-file-upload" name="des " id="des " placeholder="Pon tu descripcion">
+        <input type="file" class="custom-file-upload subir-actividades-button margin-subir-actividades" name="foto"><br>
+        <input type=" text " class="custom-file-upload margin-subir-actividades" name="des " id="des " placeholder="Pon tu descripcion">
 
         <br>
     </form>
