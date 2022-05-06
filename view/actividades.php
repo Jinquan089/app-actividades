@@ -93,60 +93,26 @@ class="fa-solid fa-arrow-up-from-bracket"></i></button>
         <div class="column-1 padding-m">
             <h4 class="padding-m">Explora</h4>
         </div>
-        <div class="column-3 padding-mobile">
-            <img src="../img/eva-gour-94mm2Txn12s-unsplash.jpg" alt="" class="target">
+        
+            <?php
+            include '../php/connection.php';
+            $sql = "SELECT * FROM tbl_foto";
+            $foto = mysqli_query($connection, $sql);
+            $ruta = $_SERVER['SERVER_NAME']."/www/app-actividades/img/";
+            foreach ($foto as $list) {
+            echo    '<div class="column-3 padding-mobile">';
+                $rutacompleta="https://".$ruta.$list['foto_user'];
+                echo "<img src='{$rutacompleta}' class='target'>";
+            echo     '<div style="float: right;" class="padding-m">';
+            echo    '<button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>';
+            echo    '<button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>';
+            echo '</div>';
+        echo '</div>';
+            }
+            
+            ?>
+            
 
-            <div style="float: right;" class="padding-m">
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>
-
-                <?php
-                echo '<button class="btn btn-light m-1" onClick="corazon();" type="submit"><i class="fa-solid fa-heart"></i></button>'; // onClick = "corazon();"
-                ?>
-
-            </div>
-        </div>
-        <div class="column-3 padding-mobile">
-            <img src="../img/dan-cristian-padure-QQkQcaz7qmY-unsplash.jpg" alt="" class="target">
-            <div style="float: right;" class="padding-m">
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>
-            </div>
-        </div>
-        <div class="column-3 padding-mobile">
-            <img src="../img/etienne-girardet-j2Soo4TfFMk-unsplash.jpg" alt="" class="target">
-            <div style="float: right;" class="padding-m">
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>
-            </div>
-        </div>
-        <div class="column-3 padding-mobile">
-            <img src="../img/lucas-hoang-mwfBszKf5Xw-unsplash.jpg" alt="" class="target">
-            <div style="float: right;" class="padding-m">
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>
-            </div>
-        </div>
-        <div class="column-3 padding-mobile">
-            <img src="../img/mathilde-langevin-tbzSgZbEuz4-unsplash.jpg" alt="" class="target">
-            <div style="float: right;" class="padding-m">
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>
-            </div>
-        </div>
-        <div class="column-3 padding-mobile">
-            <img src="../img/nick-fewings-EkyuhD7uwSM-unsplash.jpg" alt="" class="target">
-            <div style="float: right;" class="padding-m">
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>
-            </div>
-        </div>
-        <div class="column-3 padding-mobile">
-            <img src="../img/susanna-marsiglia-Yjr6EafseQ8-unsplash.jpg" alt="" class="target">
-            <div style="float: right;" class="padding-m">
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>
-                <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>
-            </div>
-        </div>
     </div>    
 </body>
 <script>

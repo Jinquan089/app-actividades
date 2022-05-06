@@ -1,18 +1,24 @@
 <?php
+session_start();
+include 'connection.php';
 $foto = $_FILES['foto'];
 $des = $_POST['des'];
-
-$path="\www\app-actividades\view\img";
+$titulo = $_POST['titulo'];
+$select = "SELECT foto_user FROM tbl_foto WHERE foto_user = '".$foto['name']."'";
+$look = mysqli_query($connection, $select);
+$look1 = mysqli_num_rows($look);
+$path="\www\app-actividades\img";
 $destino=$_SERVER['DOCUMENT_ROOT'].$path."/".$foto['name'];
-
-$cantidad=(200*1024);
-if (($foto['size']<$cantidad) && ($foto['type']=="image/jpeg" || $foto['type']=="image/png" || $foto['type']=="image/gif")) {
+echo "$look1";
+if ($look1 != 0) {
+    header('Location: ../view/subir.actividades.php?fallo=true');
+} elseif ($foto['name'] != null && $foto['type']=="image/jpeg" || $foto['type']=="image/png" || $foto['type']=="image/gif") {
     $exito=move_uploaded_file($foto['tmp_name'], $destino);
     if ($exito) {
-        $sql = "UPDATE `tbl_userlogin` SET `foto` = '$foto[name]', `descripcion`='$des' WHERE `id` = $id";
-        $insert = mysqli_query($connection, $sql);
+    $sql = "INSERT INTO tbl_foto (`foto_user`, `user_id`, `descripcion`, `titulo`) VALUES ('$foto[name]',(SELECT id FROM tbl_userlogin where user_login='$_SESSION[user]'), '$des', '$titulo')";
+    $insert = mysqli_query($connection, $sql);
+    header('Location: ../view/mis.actividades.php');
     }
 } else {
-    header('Location: ./principal.php');
+    header('Location: ../view/subir.actividades.php?fallo=null');
 }
-

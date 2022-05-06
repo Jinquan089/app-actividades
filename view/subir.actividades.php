@@ -60,11 +60,11 @@ session_start();
         <input type="file" class="custom-file-upload subir-actividades-button margin-subir-actividades" name="foto"><br>
         <div class="form-group margin-subir-actividades">
             <label for="exampleInputEmail1">Título</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserta el título de la imagen">
+            <input type="text" name="titulo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserta el título de la imagen">
         </div>
         <div class="form-group margin-subir-actividades">
             <label for="exampleInputPassword1">Descripción</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Añade una pequeña descripción a tu imagen">
+            <input type="text" class="form-control" name= "des"id="exampleInputPassword1" placeholder="Añade una pequeña descripción a tu imagen">
         </div>
         <button type="submit" class="btn btn-primary margin-subir-actividades">Enviar</button>
 
