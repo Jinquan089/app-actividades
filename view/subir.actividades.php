@@ -18,7 +18,7 @@ session_start();
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
-<body style="width: 100vw; height: 100vh;">
+<body style="width: 100vw; height: 100vh;" class="backgroundsubir">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -56,21 +56,26 @@ session_start();
             </div>
         </div>
     </nav>
+
+
+    <div class="margintop-subir-actividades" style="-webkit-box-shadow: 5px 5px 8px 6px rgba(0,0,0,0.44); box-shadow: 5px 5px 8px 6px rgba(0,0,0,0.44);"> 
     <form action="../php/upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file" class="custom-file-upload subir-actividades-button margin-subir-actividades" name="foto"><br>
+    <input type="file" class="custom-file-upload subir-actividades-button margin-subir-actividades" name="foto"><br>
+    <h1 style="margin-top: -15%;"> Subir Imágenes </h1><br> 
         <div class="form-group margin-subir-actividades">
-            <label for="exampleInputEmail1">Título</label>
-            <input type="text" name="titulo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserta el título de la imagen">
+            <label for="exampleInputEmail1"><b>Título</b></label>
+            <br><input type="text" name="titulo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserta el título de la imagen">
         </div>
         <div class="form-group margin-subir-actividades">
-            <label for="exampleInputPassword1">Descripción</label>
-            <input type="text" class="form-control" name= "des"id="exampleInputPassword1" placeholder="Añade una pequeña descripción a tu imagen">
+            <label for="exampleInputPassword1"><b>Descripción</b></label>
+            <input type="text" class="form-control" style="height:300px;" name= "des" id="exampleInputPassword1" placeholder="Añade una pequeña descripción a tu imagen">
         </div>
         <button type="submit" class="btn btn-primary margin-subir-actividades">Enviar</button>
-
         <br>
+    </div>
     </form>
-    </form>
+    </div>
+
 </body>
 
 </html>

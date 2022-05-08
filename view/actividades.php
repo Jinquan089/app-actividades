@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../php/connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/e0b63cee0f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
     <!-- Hoja de estilos -->
     <link rel="stylesheet" href="../css/main.css">
 
@@ -93,9 +95,44 @@ class="fa-solid fa-arrow-up-from-bracket"></i></button>
         <div class="column-1 padding-m">
             <h4 class="padding-m">Explora</h4>
         </div>
-        
+        <div>
+            <div>
             <?php
-            include '../php/connection.php';
+            if (!empty($_SESSION['user'])) {
+                $sql = "SELECT * FROM tbl_foto";
+                $foto = mysqli_query($connection, $sql);
+                $ruta = $_SERVER['SERVER_NAME']."/www/app-actividades/img/";
+                foreach ($foto as $list) {
+                echo    '<div class="column-3 padding-mobile">';
+                    $rutacompleta="https://".$ruta.$list['foto_user'];
+                    echo "<img src='{$rutacompleta}' class='target'>";
+                echo     '<div style="float: right;" class="padding-m">';
+                ?>
+            <?php
+                $user2 = $_SESSION['user'];
+                $idpost = $list['id'];
+                $sqllook = mysqli_query($connection,"SELECT id FROM tbl_userlogin WHERE user_login = '$user2'");
+                $us = mysqli_fetch_array($sqllook);
+                $user3 = $us['id'];
+                $sql = "SELECT * FROM tbl_megusta WHERE foto_me = '$idpost' AND user = '$user3'";
+                $query = mysqli_query($connection, $sql);
+                
+                if (mysqli_num_rows($query) == 0) { ?>
+                    <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>
+                    <button class="btn btn-light m-1 like" onclick="like(<?php echo $list['id'] ?>)" type="submit" id="<?php echo $list['id'] ?>"><i class="fa-solid fa-heart"></i> Me gusta</button>
+                    <span id="likes_<?php echo $list['id']; ?>">(<?php echo $list['likes']; ?>)</span>
+                <?php
+                } else { ?>
+                    <button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>
+                    <button class="btn btn-light m-1 like" onclick="like(<?php echo $list['id'] ?>)" type="submit" id="<?php echo $list['id'] ?>"><i class="fa-solid fa-heart"></i> No me gusta</button>
+                    <span id="likes_<?php echo $list['id']; ?>">(<?php echo $list['likes']; ?>)</span>
+                    <?php
+                }
+            echo '</div>';
+            echo '</div>';
+            
+            }
+         } else {
             $sql = "SELECT * FROM tbl_foto";
             $foto = mysqli_query($connection, $sql);
             $ruta = $_SERVER['SERVER_NAME']."/www/app-actividades/img/";
@@ -104,29 +141,35 @@ class="fa-solid fa-arrow-up-from-bracket"></i></button>
                 $rutacompleta="https://".$ruta.$list['foto_user'];
                 echo "<img src='{$rutacompleta}' class='target'>";
             echo     '<div style="float: right;" class="padding-m">';
+            echo '<form action="../regis-login/login.php">';
             echo    '<button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>';
             echo    '<button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>';
+            echo  '</form>';
             echo '</div>';
         echo '</div>';
             }
-            
+         }
             ?>
-            
-
     </div>    
 </body>
 <script>
-    var corazones=true;
-    function corazon() {
-        if (corazones) { // Cuando le dé me gusta
-            corazones = false;
-
-
-        } else { // Cuando quite el me gusta
-            corazones = true;
-        }
+    function like(id) {
+        var url = '../php/megusta.php'
+            $.ajax({
+                type: "POST",
+                data: {id:id},
+                url:url,
+                dataType: 'json',
+                success:function(data){
+                    var likes = data['likes'];
+                    var text = data['text'];
+                    $('#likes_'+id).html(likes);
+                    $('#'+id).html(text);
+                    
+                    
+                }
+            })
     }
-    
-</script>
 
+</script>
 </html>

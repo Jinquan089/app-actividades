@@ -60,7 +60,7 @@ i {
 }
 
 
-/* links */
+/* Links */
 
 p a {
     outline: none;
@@ -125,6 +125,67 @@ p a {
 
 
 /* Otras clases */
+.margintop-subir-actividades {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50%;
+    padding: 5%;
+    height: 75%; 
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    background: #fafafa;
+}
+
+.margin-subir-actividades {
+    margin-top: 5%;
+    align-items: center;
+}
+
+.subir-actividades-button {
+    margin: 0%;
+    width: 100%;
+    height: 35%;
+    margin-top: 5%;
+    background: rgb(71, 222, 222);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.subir-actividades-button:hover {
+    background: rgb(76, 190, 190);
+}
+
+.altura-desc {
+  height: 240px;
+}
+
+/*----------- Fondo Subir Actividades -----------*/
+.backgroundsubir {
+    background: linear-gradient(-45deg, #c4c3c3, #413f3f, #3b3a3a, #cccfcf);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/*-----------------------------------------------*/
 
 .target {
     background-position: center;
@@ -182,29 +243,6 @@ input [type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
-}
-
-.margin-subir-actividades {
-    margin-left: 25%;
-    margin-top: 5%;
-    margin-right: 25%;
-    align-items: center;
-}
-
-.subir-actividades-button {
-    width: 50%;
-    height: 35%;
-    margin-left: 25%;
-    margin-top: 5%;
-    background: rgb(71, 222, 222);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.subir-actividades-button:hover {
-    background: rgb(76, 190, 190);
 }
 
 
