@@ -69,23 +69,19 @@ class="fa-solid fa-arrow-up-from-bracket"></i></button>
     <div class="row-c padding-m">
         <h4 class="column-1 padding-m">Top 5</h4>
 
-        <div class="column-1 padding-s">
-            <div class="column-5 padding-s">
-                <img src="../img/keila-hotzel-lFmuWU0tv4M-unsplash.jpg" alt="" class="target-s">
-            </div>
-            <div class="column-5 padding-s">
-                <img src="../img/susanna-marsiglia-Yjr6EafseQ8-unsplash.jpg" alt="" class="target-s">
-            </div>
-            <div class="column-5 padding-s">
-                <img src="../img/dan-cristian-padure-QQkQcaz7qmY-unsplash.jpg" alt="" class="target-s">
-            </div>
-            <div class="column-5 padding-s">
-                <img src="../img/nick-fewings-EkyuhD7uwSM-unsplash.jpg" alt="" class="target-s">
-            </div>
-            <div class="column-5 padding-s">
-                <img src="../img/etienne-girardet-j2Soo4TfFMk-unsplash.jpg" alt="" class="target-s">
-            </div>
+        <div class="column-1 padding-s imap">
+            <?php
+            $sql = "SELECT * FROM `tbl_foto` ORDER BY likes desc LIMIT 5";
+            $select = mysqli_query($connection, $sql);
+            $ruta = $_SERVER['SERVER_NAME']."/www/app-actividades/img/";
+            foreach ($select as $foto) {
+                $rutacompleta="https://".$ruta.$foto['foto_user'];
+            echo'<div class="column-5 padding-s">';
+            echo    "<img src='{$rutacompleta}' class='target imgp'>";
+            echo'</div>';
+            }
 
+            ?>
         </div>
 
     </div>
@@ -109,8 +105,8 @@ class="fa-solid fa-arrow-up-from-bracket"></i></button>
                 echo     '<div style="float: right;" class="padding-m">';
                 ?>
             <?php
-                $user2 = $_SESSION['user'];
                 $idpost = $list['id'];
+                $user2 = $_SESSION['user'];
                 $sqllook = mysqli_query($connection,"SELECT id FROM tbl_userlogin WHERE user_login = '$user2'");
                 $us = mysqli_fetch_array($sqllook);
                 $user3 = $us['id'];
@@ -137,20 +133,21 @@ class="fa-solid fa-arrow-up-from-bracket"></i></button>
             $foto = mysqli_query($connection, $sql);
             $ruta = $_SERVER['SERVER_NAME']."/www/app-actividades/img/";
             foreach ($foto as $list) {
-            echo    '<div class="column-3 padding-mobile">';
-                $rutacompleta="https://".$ruta.$list['foto_user'];
-                echo "<img src='{$rutacompleta}' class='target'>";
-            echo     '<div style="float: right;" class="padding-m">';
-            echo '<form action="../regis-login/login.php">';
-            echo    '<button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>';
-            echo    '<button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>';
-            echo  '</form>';
+            echo'<div class="column-3 padding-mobile">';
+                    $rutacompleta="https://".$ruta.$list['foto_user'];
+            echo    "<img src='{$rutacompleta}' class='target'>";
+            echo    '<div style="float: right;" class="padding-m">';
+            echo        '<form action="../regis-login/login.php">';
+            echo            '<button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-link"></i></button>';
+            echo            '<button class="btn btn-light m-1" type="submit"><i class="fa-solid fa-heart"></i></button>';
+            echo        '</form>';
+            echo    '</div>';
             echo '</div>';
-        echo '</div>';
             }
          }
             ?>
-    </div>    
+    </div>
+   
 </body>
 <script>
     function like(id) {

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../php/connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +69,7 @@ session_start();
         </div>
         <div class="form-group margin-subir-actividades">
             <label for="exampleInputPassword1"><b>Descripción</b></label>
-            <input type="text" class="form-control" style="height:300px;" name= "des" id="exampleInputPassword1" placeholder="Añade una pequeña descripción a tu imagen">
+            <input type="text" class="form-control" style="height: 300px;" name= "des" id="exampleInputPassword1" placeholder="Añade una pequeña descripción a tu imagen">
         </div>
         <button type="submit" class="btn btn-primary margin-subir-actividades">Enviar</button>
         <br>

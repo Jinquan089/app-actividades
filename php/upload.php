@@ -15,7 +15,7 @@ if ($look1 != 0) {
 } elseif ($foto['name'] != null && $foto['type']=="image/jpeg" || $foto['type']=="image/png" || $foto['type']=="image/gif") {
     $exito=move_uploaded_file($foto['tmp_name'], $destino);
     if ($exito) {
-    $sql = "INSERT INTO tbl_foto (`foto_user`, `user_id`, `descripcion`, `titulo`) VALUES ('$foto[name]',(SELECT id FROM tbl_userlogin where user_login='$_SESSION[user]'), '$des', '$titulo')";
+    $sql = "INSERT INTO tbl_foto (`foto_user`, `user_id`, `descripcion`, `titulo`) VALUES ('$foto[name]',(SELECT id FROM tbl_userlogin where user_login='$_SESSION[user]'), '$des', '$titulo'))";
     $insert = mysqli_query($connection, $sql);
     header('Location: ../view/mis.actividades.php');
     }

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../php/connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,5 +57,25 @@ session_start();
             </div>
         </div>
     </nav>
+<div class="row-c">
+<?php
+$user2 = $_SESSION['user'];
+$sqllook = mysqli_query($connection,"SELECT id FROM tbl_userlogin WHERE user_login = '$user2'");
+$us = mysqli_fetch_array($sqllook);
+$user3 = $us['id'];
+$sql = "SELECT * FROM tbl_foto where `user_id`= '$user3'";
+$select = mysqli_query($connection,$sql);
+$ruta = $_SERVER['SERVER_NAME']."/www/app-actividades/img/";
+foreach ($select as $foto) {
+    echo '<div class="column-3 padding-mobile">';
+    $rutacompleta="https://".$ruta.$foto['foto_user'];
+    echo "<img src='{$rutacompleta}' class='target'>";
+    echo "<p>".$foto['likes']."</p>";
+    echo '<div style="float: right;" class="padding-m">';
+    echo '</div>';
+    echo '</div>';
+}
+?>
+</div>
 </body>
 </html>
