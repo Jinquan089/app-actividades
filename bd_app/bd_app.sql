@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2022 a las 15:42:30
+-- Tiempo de generación: 11-05-2022 a las 15:45:22
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.15
 
@@ -42,11 +42,11 @@ CREATE TABLE `tbl_foto` (
 --
 
 INSERT INTO `tbl_foto` (`id`, `foto_user`, `user_id`, `descripcion`, `titulo`, `likes`, `fecha_su`) VALUES
-(1, 'jin.jpg', 1, '', '', 11, '2022-05-11 06:35:58'),
-(2, 'pepe.jpg', 1, '', '', 0, '2022-05-11 06:35:58'),
-(3, 'twitter-cronologia-vida-homer-simpson.jpg', 1, '', '', 3, '2022-05-11 06:35:58'),
-(4, 'amarilloc.jpg', 1, '', '', 1, '2022-05-11 06:38:05'),
-(5, 'cat-gato.gif', 2, '', '', 0, '2022-05-11 06:47:33');
+(1, 'jin.jpg', 1, 'jin is jin', 'Jin', 11, '2022-05-11 06:35:58'),
+(2, 'pepe.jpg', 1, 'pepe is pepe', 'Pepe', 0, '2022-05-11 06:35:58'),
+(3, 'twitter-cronologia-vida-homer-simpson.jpg', 1, 'homer en sofa', 'Homer', 3, '2022-05-11 06:35:58'),
+(4, 'amarilloc.jpg', 1, 'Color', '', 1, '2022-05-11 06:38:05'),
+(5, 'cat-gato.gif', 2, 'Gato bailando', 'Gato', 0, '2022-05-11 06:47:33');
 
 -- --------------------------------------------------------
 
