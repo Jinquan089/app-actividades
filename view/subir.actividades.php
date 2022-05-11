@@ -64,6 +64,8 @@ include '../php/connection.php';
     <input type="file" class="custom-file-upload subir-actividades-button margin-subir-actividades" name="foto"><br>
     <h1 style="margin-top: -15%;"> Subir Imágenes </h1><br> 
         <div class="form-group margin-subir-actividades">
+        <br>
+            <br>
             <label for="exampleInputEmail1"><b>Título</b></label>
             <br><input type="text" name="titulo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserta el título de la imagen">
         </div>

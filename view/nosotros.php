@@ -93,20 +93,17 @@ include '../php/connection.php';
         </div>
 
         <div class="column-1 padding-s">
-
-            <div class="column-4 padding-s">
-                <img src="../img/kelly-sikkema-TS6FasMlQWs-unsplash.jpg" alt="" class="target-s">
-            </div>
-            <div class="column-4 padding-s">
-                <img src="../img/etienne-girardet-j2Soo4TfFMk-unsplash.jpg" alt="" class="target-s">
-            </div>
-
-            <div class="column-4 padding-s">
-                <img src="../img/nick-fewings-EkyuhD7uwSM-unsplash.jpg" alt="" class="target-s">
-            </div>
-            <div class="column-4 padding-s">
-                <img src="../img/keila-hotzel-lFmuWU0tv4M-unsplash.jpg" alt="" class="target-s">
-            </div>
+        <?php
+                    $sql = "SELECT * FROM `tbl_foto` ORDER BY fecha_su desc LIMIT 4";
+                    $select = mysqli_query($connection, $sql);
+                    $ruta = $_SERVER['SERVER_NAME']."/www/app-actividades/img/";
+                    foreach ($select as $foto) {
+                        $rutacompleta="https://".$ruta.$foto['foto_user'];
+                    echo'<div class="column-4 padding-s">';
+                    echo    "<img src='{$rutacompleta}' class='target-s'>";
+                    echo'</div>';
+                    }
+        ?>
         </div>
     </div>
 

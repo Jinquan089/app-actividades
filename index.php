@@ -36,6 +36,7 @@ session_start();
                     echo '<a href="./php/cerrarsession.php "><button type="button " class="btn btn-light "><b><i class="fa-solid fa-right-to-bracket "></i>Logout</b></button></a>';
                 } else {
                     echo '<a href="./regis-login/login.php "><button type="button " class="btn btn-light "><b><i class="fa-solid fa-right-to-bracket "></i> Acceder</b></button></a>';
+                    echo " ";
                     echo '<a href="./regis-login/registrar.php"><button type="button " class="btn btn-info "><b><i class="fa-solid fa-registered "></i> Registrar</b></button></a>';
                 }
                 ?>

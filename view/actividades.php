@@ -92,6 +92,7 @@ class="fa-solid fa-arrow-up-from-bracket"></i></button>
             <h4 class="padding-m">Explora</h4>
         </div>
         <div>
+            
             <div>
             <?php
             if (!empty($_SESSION['user'])) {
@@ -99,10 +100,15 @@ class="fa-solid fa-arrow-up-from-bracket"></i></button>
                 $foto = mysqli_query($connection, $sql);
                 $ruta = $_SERVER['SERVER_NAME']."/www/app-actividades/img/";
                 foreach ($foto as $list) {
-                echo    '<div class="column-3 padding-mobile">';
-                    $rutacompleta="https://".$ruta.$list['foto_user'];
-                    echo "<img src='{$rutacompleta}' class='target'>";
+                $id=$list['id'];
+                ?>
+                <a href="detaimg.php?id=<?php echo $id ?>">
+                <div class="column-3 padding-mobile">
+                <?php
+                $rutacompleta="https://".$ruta.$list['foto_user'];
+                echo    "<img src='{$rutacompleta}' class='target'>";
                 echo     '<div style="float: right;" class="padding-m">';
+                echo    '</a>';
                 ?>
             <?php
                 $idpost = $list['id'];
@@ -153,14 +159,14 @@ class="fa-solid fa-arrow-up-from-bracket"></i></button>
     function like(id) {
         var url = '../php/megusta.php'
             $.ajax({
-                type: "POST",
-                data: {id:id},
-                url:url,
-                dataType: 'json',
-                success:function(data){
-                    var likes = data['likes'];
+                type: "POST", //Forma de enviar los datos
+                data: {id:id}, //Datos que vas a enviar el id primero es la variable de arriba y el id segundo es el id del boton
+                url:url, // url la pagina donde vas a enviar los datos
+                dataType: 'json', // Tipo de dato en js
+                success:function(data){ //Si funciona el ajax coje los datos que nos enviar el php
+                    var likes = data['likes']; //cojemos los y lo ponemos en una variable
                     var text = data['text'];
-                    $('#likes_'+id).html(likes);
+                    $('#likes_'+id).html(likes); //Aqui ponemos por pantalla los datos
                     $('#'+id).html(text);
                     
                     

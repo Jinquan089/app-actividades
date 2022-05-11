@@ -41,6 +41,8 @@
     <?php
     if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true') {
         echo "<div style='color:red'><b>Has puesto mal la contraseña</b></div>";
+    } elseif (isset($_GET["fallo"]) && $_GET["fallo"] == 'true2') {
+      echo "<div style='color:red'><b>El usuario ya esta registrado</b></div>";
     }
     ?>
 </body>

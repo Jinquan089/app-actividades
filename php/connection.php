@@ -1,4 +1,4 @@
-<?php
+<?php //Pagina para facilitar la conectividad de base de dato
 
 const SERVIDOR = "localhost";
 const USER = "root";
